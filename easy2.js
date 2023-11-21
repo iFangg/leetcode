@@ -22,8 +22,20 @@ var removeElement = function(nums, val) {
 // Solution 2
 var removeElement = function(nums, val) {
     let arr = nums.filter(e => e !== val);
+    // or
+    let counter = 0;
+    let arr = nums.filter(e => {
+        if (e === val) {
+            // Increment the counter if the element is equal to val
+            counter++;
+            return false; // Exclude the element from the filtered array
+        }
+        return true; // Include the element in the filtered array
+        });
     nums.splice(0,nums.length);
     nums.push(...arr);
+
+    return counter;
 };
 
 // Solution 3
