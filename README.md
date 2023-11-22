@@ -8,3 +8,6 @@ My initial intuitive solution had holes in it, I realise that my problem solving
 
 ### Remove Element: Easy problem (see `easy2.js`)
 Either my intuitive thinking is beginning to return to what it was before, or this question was on the easier side of easy problems. Either way, my intuitive solutions worked, although not completely refined. One of the community solutions filtered the array, and replaced the original array with the filtered array which to me sounds better than making a copy of the original array and replacing the values which are equal to the given value. Solution 3 is a refined version of my intuitive process, not using the array copy and instead only having an index tracker to replace values in the original array.
+
+### Is subsequence: Easy problem (see `easy3.js`)
+Intuitive solution again worked, but was not optimal - need to spend some more time thinking and find a more optimal solution. Though my intuitive solution works, I forgot proper usage of js functions and methods. Will need to revise js.
