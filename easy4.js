@@ -37,4 +37,41 @@ var summaryRanges = function(nums) {
     return rangeArray;
 };
 
-// Solution 2
+// Solution 2 - refactored sol'n 1
+var summaryRanges = function(nums) {
+    const rangeArray = [];
+
+    for (let i = 0; i < nums.length; i++) {
+        let start = nums[i];
+        while (i + 1 < nums.length && nums[i + 1] - nums[i] === 1) {
+            i++;
+        }
+        let end = nums[i];
+        let range = start === end ? `${start}` : `${start}->${end}`;
+        rangeArray.push(range);
+    }
+
+    return rangeArray;
+};
+
+// Solution 3 - better memory usage sol'n (allegedly)
+var summaryRanges = function(nums) {
+    if(nums.length === 0) return []
+    const results = []    
+    let i = 1
+    let start = nums[0]
+    for(; i < nums.length; i++ ) {
+        if(nums[i] !== (nums[i-1]+1)) {
+            pushData(results, start, nums[i-1])            
+            start = nums[i]
+        }
+    }
+
+    pushData(results, start, nums[i-1])            
+    return results
+};
+
+const pushData = (results, start, end) => {        
+    if(start === end) results.push(`${start}`)
+    else results.push(`${start}->${end}`)                    
+}
