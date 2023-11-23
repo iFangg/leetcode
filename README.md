@@ -11,3 +11,24 @@ Either my intuitive thinking is beginning to return to what it was before, or th
 
 ### Is subsequence: Easy problem (see `easy3.js`)
 Intuitive solution again worked, but was not optimal - need to spend some more time thinking and find a more optimal solution. Though my intuitive solution works, I forgot proper usage of js functions and methods. Will need to revise js. Upon inspecting the more optimal solutions interms of time and space, they were very similar to mine, except they didn't create extra arrays. They instead had pointers to indexes of the strings that incremented if they found the matching character. This means I need to continue improving on my problem solving skills and efficiency in these problems. Take your time!!!
+
+### Summary Ranges: Easy problem (`easy4.js`)
+Intuitive solution was more thought out this time, I adapted my thoughts into an actual plan (observe below) and translated it into code (although I technically started writing the code first and got stuck). This is really good news! I'm adapting my thought process and problem solving ability. Even though these are still just easy leetcode problems this will set me up for the future!!!
+```
+example case: 0 1 2 4 5 7
+
+initially:
+ start = 0
+ prev = 0
+ end = ?
+
+next:
+ start = previous starting number if consecutive, current number if no longer consecutive
+ prev = previous number
+ end = ? if consecutive, prev if no longer consecutive
+
+end:
+ start = previous starting number if consecutive, current number if no longer consecutive
+ prev = previous number
+ end = this number if consecutive, this number if no longer consecutive
+```
