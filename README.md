@@ -33,3 +33,5 @@ end:
  end = this number if consecutive, this number if no longer consecutive
 ```
 
+### Linked List: Easy problem (`easy5.js`)
+Intuitive solution worked, problem was simple enough that my thought process didn't need to be written down. The only issue today was that I rushed it and didn't double check my code for simple mistakes. The only real issue with my solution was it's slow speed. A faster solution looked at the next element in the linked list, as well as the one after that, saving time and memory on the amount of iterations while still achieving the same answer.
