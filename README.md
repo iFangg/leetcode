@@ -36,5 +36,5 @@ end:
 ### Linked List: Easy problem (`easy5.js`)
 Intuitive solution worked, problem was simple enough that my thought process didn't need to be written down. The only issue today was that I rushed it and didn't double check my code for simple mistakes. The only real issue with my solution was it's slow speed. A faster solution looked at the next element in the linked list, as well as the one after that, saving time and memory on the amount of iterations while still achieving the same answer.
 
-## Maximum Depth of Binary Tree(`easy6.js`)
+### Maximum Depth of Binary Tree(`easy6.js`)
 It's been a while since I've dealt with trees and graph theory so though my thought process for my initial solution was correct, implementation was quite rough since I haven't worked with these data structures in a while. For an easy problem like this, there was a one line solution, though for harder tree and graph questions they cannot be solved in one line (can't cheese it :/).
