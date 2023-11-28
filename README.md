@@ -42,5 +42,9 @@ It's been a while since I've dealt with trees and graph theory so though my thou
 ### Valid Parentheses (`easy7.js`)
 My knowledge of basic data structures shone through here, utilising the correct data structure - a stack - here to solve the problem. Intuitive solution was correct, though implementation was a little verbose. Did not need to add a variable to check length, could simply check if the correct closing parenthesis followed the most recent open parenthesis. That misjudgement does serve as a reminder to always properly understand your own solution and recognise those steps; what data structures and algorithms do you intend to use (and keep those in mind!). If you don't do that, you risk over-complicating your code because you're mindlessly thinking of a solution which may cause you to overlook elements of your code.
 
-### Average of levels in Binary tre (`easy8.js`)
+### Average of Levels in Binary tree (`easy8.js`)
 Similar to the previous binary tree problem that I did, I am greatly reminded that I need to practice more with data structures and algorithms. In this case, I seriously need to brush up on trees and graph theory if I have any chance of successfully doing the medium and hard problems later on. Intuitive solution was rushed, did not completely write down my solution which hindered my progress and allowed me to write a messy, verbose solution. 2nd solution is an optomised version of what I wanted to implement, effectively implementing a breadth-first search algorithm and a queue data strucutre. (Note: maybe have a look at COMP2521 notes again?)
+
+### Minimum Absolute Difference in BST (`easy9.js`)
+Unfortunately I read the question wrong and created an incorrect solution. I thus had to restart and think of another solution which worked. Intuitive solution could have been more refined, could have realised that if I traversed the tree in order (using depth-first) it would have been much more efficient instead of purely finding all values in the tree, sorting and *then* finding the smallest interval. More practice and critical thinking needed. Spending a little extra time on problems never hurts!!
+
