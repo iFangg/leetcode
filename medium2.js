@@ -39,14 +39,14 @@ var cloneGraph = function(node) {
      if(!node) return node;
 
      let visited = {};
-     function dfs(node){
+     function dfs(node) {
         if(node.val in visited)
             return visited[node.val];
 
         let newNode = new Node(node.val);
         visited[node.val] = newNode;
 
-        for(let i = 0; i < node.neighbors.length; i++){
+        for (let i = 0; i < node.neighbors.length; i++) {
             newNode.neighbors.push(dfs(node.neighbors[i]));
         }
         return newNode;
