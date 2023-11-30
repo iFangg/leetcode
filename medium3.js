@@ -98,13 +98,13 @@ var snakesAndLadders = function(board) {
     while(q.length > 0){
         [pos, moves] = q.shift();
         for(let i = 1; i < 7; i++){
-            let newPos = i + pos;
+            let newPos = pos + i;
             let [r, c] = getPos(newPos);
             if(board[r][c] != -1 ) newPos = board[r][c]
-            if(newPos == n * n) return moves+1;
+            if(newPos == n * n) return moves + 1;
             if(!set.has(newPos)){
                 set.add(newPos)
-                q.push([newPos, moves+1])
+                q.push([newPos, moves + 1])
             }
         }
     }
