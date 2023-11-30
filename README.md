@@ -50,3 +50,6 @@ Unfortunately I read the question wrong and created an incorrect solution. I thu
 
 ### Clone Graph (`medium2.js`)
 Though my thought process was correct, my implementation wasn't. Due to a lack of understanding of more complex data structures I started off using more basic structures which left holes in my implementation; an example of this was my implementation of the visited nodes array which started off as an array, then becoming a set and finally a map which accurately kept track of visited nodes and a copy of the respective nodes. Traversing graphs and trees are becoming easier to implement, showing that the practice is paying off! Can't stop now!
+
+### Snakes and Ladders (`medium3.js`)
+Today was the first failure in a while. Though my thought process was right and I tried to implement the correct algorithm (BFS), my lack of a proper understanding of how to implement BFS caused the implementation to fail. Not only that, but I overthought the solution as well, writing multiple helper functions which didn't end up helping since I failed the question today anyways. The takeaways from today are to read up on data structures and algorithms (and keep practicing them!) and if you start to overthink and over compensate for failing code, step back, clear your head and rethink your solution.
