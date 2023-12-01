@@ -53,3 +53,6 @@ Though my thought process was correct, my implementation wasn't. Due to a lack o
 
 ### Snakes and Ladders (`medium3.js`)
 Today was the first failure in a while. Though my thought process was right and I tried to implement the correct algorithm (BFS), my lack of a proper understanding of how to implement BFS caused the implementation to fail. Not only that, but I overthought the solution as well, writing multiple helper functions which didn't end up helping since I failed the question today anyways. The takeaways from today are to read up on data structures and algorithms (and keep practicing them!) and if you start to overthink and over compensate for failing code, step back, clear your head and rethink your solution.
+
+### Implement Trie (Prefix Tree) (`medium4.js`)
+Forgot what a trie data structure looked like, had to google and stumbled across a near-exact implementation of this problem, so definitely lucked out (googled a little too hard haha). Solution 2 is a less general-purpose solution, tailored to the premise of the question and isn't too applicable outside of that problem so I like my implementation better. Good reminder to revisit data structures and algorithms (keep it up!).
