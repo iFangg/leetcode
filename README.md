@@ -56,3 +56,61 @@ Today was the first failure in a while. Though my thought process was right and 
 
 ### Implement Trie (Prefix Tree) (`medium4.js`)
 Forgot what a trie data structure looked like, had to google and stumbled across a near-exact implementation of this problem, so definitely lucked out (googled a little too hard haha). Solution 2 is a less general-purpose solution, tailored to the premise of the question and isn't too applicable outside of that problem so I like my implementation better. Good reminder to revisit data structures and algorithms (keep it up!).
+
+### Letter Combinations of a Phone Number (`medium5.js`)
+Below is how the backtracking algorithm for this problem works. Didn't really have a clue with this one, I've always struggled with back-tracking, will need to keep on practicing with this algorithm. It seems very self-explanatory after looking at the solution. It's a simple recursive function ://
+```
+Initial call: generateCombinations(0, '')
+|
+|-- First recursive call: generateCombinations(1, 'a')   (digit "2")
+|   |
+|   |-- Second recursive call: generateCombinations(2, 'ad')   (digit "3")
+|   |   |
+|   |   |-- Third recursive call: generateCombinations(3, 'adf')   (reached end, add to result)
+|   |   |
+|   |   |-- Third recursive call: generateCombinations(3, 'ade')   (reached end, add to result)
+|   |   |
+|   |   |-- Third recursive call: generateCombinations(3, 'adf')   (reached end, add to result)
+|   |
+|   |-- Second recursive call: generateCombinations(2, 'ae')   (digit "3")
+|   |   |
+|   |   |-- Third recursive call: generateCombinations(3, 'aef')   (reached end, add to result)
+|   |   |
+|   |   |-- Third recursive call: generateCombinations(3, 'aee')   (reached end, add to result)
+|   |   |
+|   |   |-- Third recursive call: generateCombinations(3, 'aef')   (reached end, add to result)
+|   |
+|   |-- Second recursive call: generateCombinations(2, 'af')   (digit "3")
+|       |
+|       |-- Third recursive call: generateCombinations(3, 'aff')   (reached end, add to result)
+|       |
+|       |-- Third recursive call: generateCombinations(3, 'afe')   (reached end, add to result)
+|       |
+|       |-- Third recursive call: generateCombinations(3, 'aff')   (reached end, add to result)
+|
+|-- First recursive call: generateCombinations(1, 'b')   (digit "2")
+    |
+    |-- Second recursive call: generateCombinations(2, 'bd')   (digit "3")
+    |   |
+    |   |-- Third recursive call: generateCombinations(3, 'bdf')   (reached end, add to result)
+    |   |
+    |   |-- Third recursive call: generateCombinations(3, 'bde')   (reached end, add to result)
+    |   |
+    |   |-- Third recursive call: generateCombinations(3, 'bdf')   (reached end, add to result)
+    |
+    |-- Second recursive call: generateCombinations(2, 'be')   (digit "3")
+    |   |
+    |   |-- Third recursive call: generateCombinations(3, 'bef')   (reached end, add to result)
+    |   |
+    |   |-- Third recursive call: generateCombinations(3, 'bee')   (reached end, add to result)
+    |   |
+    |   |-- Third recursive call: generateCombinations(3, 'bef')   (reached end, add to result)
+    |
+    |-- Second recursive call: generateCombinations(2, 'bf')   (digit "3")
+        |
+        |-- Third recursive call: generateCombinations(3, 'bff')   (reached end, add to result)
+        |
+        |-- Third recursive call: generateCombinations(3, 'bfe')   (reached end, add to result)
+        |
+        |-- Third recursive call: generateCombinations(3, 'bff')   (reached end, add to result)
+```
