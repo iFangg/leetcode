@@ -66,7 +66,7 @@ Initial call: generateCombinations(0, '')
 |   |
 |   |-- Second recursive call: generateCombinations(2, 'ad')   (digit "3")
 |   |   |
-|   |   |-- Third recursive call: generateCombinations(3, 'adf')   (reached end, add to result)
+|   |   |-- Third recursive call: generateCombinations(3, 'add')   (reached end, add to result) (digit "3")
 |   |   |
 |   |   |-- Third recursive call: generateCombinations(3, 'ade')   (reached end, add to result)
 |   |   |
@@ -74,7 +74,7 @@ Initial call: generateCombinations(0, '')
 |   |
 |   |-- Second recursive call: generateCombinations(2, 'ae')   (digit "3")
 |   |   |
-|   |   |-- Third recursive call: generateCombinations(3, 'aef')   (reached end, add to result)
+|   |   |-- Third recursive call: generateCombinations(3, 'aed')   (reached end, add to result) (digit "3")
 |   |   |
 |   |   |-- Third recursive call: generateCombinations(3, 'aee')   (reached end, add to result)
 |   |   |
@@ -82,7 +82,7 @@ Initial call: generateCombinations(0, '')
 |   |
 |   |-- Second recursive call: generateCombinations(2, 'af')   (digit "3")
 |       |
-|       |-- Third recursive call: generateCombinations(3, 'aff')   (reached end, add to result)
+|       |-- Third recursive call: generateCombinations(3, 'afd')   (reached end, add to result) (digit "3")
 |       |
 |       |-- Third recursive call: generateCombinations(3, 'afe')   (reached end, add to result)
 |       |
@@ -92,7 +92,7 @@ Initial call: generateCombinations(0, '')
     |
     |-- Second recursive call: generateCombinations(2, 'bd')   (digit "3")
     |   |
-    |   |-- Third recursive call: generateCombinations(3, 'bdf')   (reached end, add to result)
+    |   |-- Third recursive call: generateCombinations(3, 'bdd')   (reached end, add to result) (digit "3")
     |   |
     |   |-- Third recursive call: generateCombinations(3, 'bde')   (reached end, add to result)
     |   |
@@ -100,7 +100,7 @@ Initial call: generateCombinations(0, '')
     |
     |-- Second recursive call: generateCombinations(2, 'be')   (digit "3")
     |   |
-    |   |-- Third recursive call: generateCombinations(3, 'bef')   (reached end, add to result)
+    |   |-- Third recursive call: generateCombinations(3, 'bed')   (reached end, add to result) (digit "3")
     |   |
     |   |-- Third recursive call: generateCombinations(3, 'bee')   (reached end, add to result)
     |   |
@@ -108,7 +108,7 @@ Initial call: generateCombinations(0, '')
     |
     |-- Second recursive call: generateCombinations(2, 'bf')   (digit "3")
         |
-        |-- Third recursive call: generateCombinations(3, 'bff')   (reached end, add to result)
+        |-- Third recursive call: generateCombinations(3, 'bfd')   (reached end, add to result) (digit "3")
         |
         |-- Third recursive call: generateCombinations(3, 'bfe')   (reached end, add to result)
         |
