@@ -58,7 +58,7 @@ Today was the first failure in a while. Though my thought process was right and 
 Forgot what a trie data structure looked like, had to google and stumbled across a near-exact implementation of this problem, so definitely lucked out (googled a little too hard haha). Solution 2 is a less general-purpose solution, tailored to the premise of the question and isn't too applicable outside of that problem so I like my implementation better. Good reminder to revisit data structures and algorithms (keep it up!).
 
 ### Letter Combinations of a Phone Number (`medium5.js`)
-Below is how the backtracking algorithm for this problem works (for depth 3). Didn't really have a clue with this one, I've always struggled with back-tracking, will need to keep on practicing with this algorithm. It seems very self-explanatory after looking at the solution. It's a simple recursive function ://
+Below is how the backtracking algorithm for this problem works (for depth 3). Didn't really have a clue with this one, I've always struggled with back-tracking, will need to keep on practicing with this algorithm. It seems very self-explanatory after looking at the solution. It's a simple recursive function :// The main idea behind backtracking is establishing a "checkpoint" which is done with each level of recursion; Once you've reached the end of the recursive loop, you back out to the nearest checkpoint and go a different way - like making a trail of where you went and following it back once you hit a dead end (you BACKTRACK, hence the name haha). 
 ```
 Initial call: generateCombinations(0, '')
 |
