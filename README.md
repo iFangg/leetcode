@@ -114,3 +114,7 @@ Initial call: generateCombinations(0, '')
         |
         |-- Third recursive call: generateCombinations(3, 'bff')   (reached end, add to result)
 ```
+
+### Converted Sorted Array to Binary Search Tree (`easy10.js`)
+Another binary tree problem, my thought process was correct - hard to go wrong with simply implementing a bst - but again my implementation let me down. Didn't properly implement the creation of a bst and found errors initially of creating unbalanced trees. Goes to show I need more practice and time spent on these fundamentals.
+
