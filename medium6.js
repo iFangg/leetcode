@@ -51,9 +51,11 @@ var maxSubArray = function(nums) {
     }
 
     // The resulting object includes the sum, start index, and end index of the largest subarray
-    return {
-        sum: largest,
-        start: startIdx,
-        end: endIdx
-    };
+    return nums.slice(startIdx, endIdx + 1);
+    // or
+    // return {
+    //     sum: largest,
+    //     start: startIdx,
+    //     end: endIdx
+    // };
 };
