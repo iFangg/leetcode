@@ -25,3 +25,35 @@ var maxSubArray = function(nums) {
     }
     return max;
 };
+
+// Solution 3 - if you'd want to print the subarray as well
+var maxSubArray = function(nums) {
+    let largest = -Infinity;
+    let current = 0;
+    let startIdx = 0;  // Start index of the current maximum subarray
+    let endIdx = 0;    // End index of the current maximum subarray
+
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] > current + nums[i]) {
+            // Start a new subarray
+            current = nums[i];
+            startIdx = i;
+        } else {
+            // Extend the current subarray
+            current = current + nums[i];
+        }
+
+        if (current > largest) {
+            // Update the largest sum and end index
+            largest = current;
+            endIdx = i;
+        }
+    }
+
+    // The resulting object includes the sum, start index, and end index of the largest subarray
+    return {
+        sum: largest,
+        start: startIdx,
+        end: endIdx
+    };
+};
