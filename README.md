@@ -124,3 +124,5 @@ This was a problem about Kadane's algorithm, something which I had no idea about
 ### Search Insert Position (`easy11.js`)
 Problem solved with relative ease, simple binary search (two pointers/indexes at opposite ends of the array) implementation. Saw a solution that completely disregarded the idea of the problem; though incredibly fast, it is impractical and not what the question aims to test (i think).
 
+### Kth Largest Element in Array (`medium7.js`)
+Couldn't figure out how to do this with heaps and a priority queue, completed it via a simple sort and index solution. Solution 2 is an example of how to solve the problem using a heap and a priority queue.
