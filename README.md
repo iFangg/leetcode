@@ -126,3 +126,6 @@ Problem solved with relative ease, simple binary search (two pointers/indexes at
 
 ### Kth Largest Element in Array (`medium7.js`)
 Couldn't figure out how to do this with heaps and a priority queue, completed it via a simple sort and index solution. Solution 2 is an example of how to solve the problem using a heap and a priority queue.
+
+### Add Binary (`easy12.js`)
+Solution was simple convert binary to integer, add then convert back into binary. This was made much easier in js because of the parseInt/BigInt and toString methods. I did fail at first because I forgot about precision and the fact that the binary numbers could extend the length of normal integers. It was a simple fix. Easy problem today!
