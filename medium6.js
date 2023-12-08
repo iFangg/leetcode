@@ -59,3 +59,20 @@ var maxSubArray = function(nums) {
     //     end: endIdx
     // };
 };
+
+// Solution 4 - Memoization / 1D Dynamic Programming
+function maxSubarraySum(nums) {
+    const n = nums.length;
+    const dp = new Array(n); // Memoization table
+
+    dp[0] = nums[0];
+    let maxSum = dp[0];
+
+    for (let i = 1; i < n; i++) {
+        dp[i] = Math.max(nums[i], dp[i - 1] + nums[i]);
+        maxSum = Math.max(maxSum, dp[i]);
+    }
+
+    return maxSum;
+}
+
