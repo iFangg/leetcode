@@ -129,3 +129,6 @@ Couldn't figure out how to do this with heaps and a priority queue, completed it
 
 ### Add Binary (`easy12.js`)
 Solution was simple convert binary to integer, add then convert back into binary. This was made much easier in js because of the parseInt/BigInt and toString methods. I did fail at first because I forgot about precision and the fact that the binary numbers could extend the length of normal integers. It was a simple fix. Easy problem today!
+
+### Plus One (`easy13.js`)
+Solution was simple, other solutions I found on leetcode were not clean enough so my own was good enouhg. Simple problem today.
