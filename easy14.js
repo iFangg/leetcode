@@ -9,8 +9,9 @@ var climbStairs = function(n) {
         for (let i = 0; i < steps.length; i++) {
             currSum += steps[i];
             if (combos.includes(sumArray)) break;
+            
             sumArray.push(steps[i]);
-            console.log(sumArray)
+            
             if (currSum === n) {
                 combos.push(sumArray);
                 currSum = 0;
@@ -19,7 +20,7 @@ var climbStairs = function(n) {
             else if (currSum > n) break;
             else stairsCombos(combos, currSum, sumArray);
         }
-        // console.log(combos);
+        
         return combos;
     };
 
