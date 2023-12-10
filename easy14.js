@@ -27,8 +27,45 @@ var climbStairs = function(n) {
     return combos.length;
 };
 
-
 // Solution 2
+var climbStairs = function(n) {
+    const memo = new Map(); // Memoization table
+
+    function countWaysToReach(currStep) {
+        if (currStep === n) return 1; // Reached the top, one valid way
+        if (currStep > n) return 0; // Went beyond the top, not a valid way
+
+        if (memo.has(currStep)) return memo.get(currStep);
+
+        let totalWays = 0;
+
+        for (let i = 1; i <= 2; i++) {
+            totalWays += countWaysToReach(currStep + i);
+        }
+
+        memo.set(currStep, totalWays);
+        return totalWays;
+    }
+
+    return countWaysToReach(0);
+};
+
+// Solution 3
+var climbStairs = function(n) {
+    if (n <= 2) {
+        return n
+    }
+    
+    const arr = [1, 2];
+    for (let i = 2; i < n; i++) {
+        const sum = arr[i - 1] + arr[i - 2];
+        arr.push(sum);
+    }
+
+    return arr[arr.length - 1]; 
+};
+
+// Solution 4 - doesn't use memoization
 var climbStairs = function(n) {
     
     if (n < 2) return 1;
