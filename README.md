@@ -133,5 +133,5 @@ Solution was simple convert binary to integer, add then convert back into binary
 ### Plus One (`easy13.js`)
 Solution was simple, other solutions I found on leetcode were not clean enough so my own was good enouhg. Simple problem today.
 
-### Climbing Stairs (`easy13.js`)
-Couldn't figure this one out, the clue I was given was 1D Dynamic Programming, perhaps using memoization but I couldn't figure it out. A posted solution used fibonacci, which I don't think fully encapsultes what this problem is trying to train and assess.
+### Climbing Stairs (`easy14.js`)
+Couldn't figure this one out, the clue I was given was 1D Dynamic Programming, perhaps using memoization but I couldn't figure it out. A posted solution used fibonacci, which I don't think fully encapsultes what this problem is trying to train and assess. EDIT: Added solutions that properly utilise memoization.
