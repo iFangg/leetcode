@@ -135,3 +135,9 @@ Solution was simple, other solutions I found on leetcode were not clean enough s
 
 ### Climbing Stairs (`easy14.js`)
 Couldn't figure this one out, the clue I was given was 1D Dynamic Programming, perhaps using memoization but I couldn't figure it out. A posted solution used fibonacci, which I don't think fully encapsultes what this problem is trying to train and assess. EDIT: Added solutions that properly utilise memoization.
+
+### House Robbing (`medium8.js`)
+With this problem, my intuitive solution wasn't aligned with the way the problem was meant to be solved. With a lot of these dynamic programming problems I seem to neglect the fact that they are dynamic solutions and try use slow, recursive solutions that either take too long or use too much memory for larger cases. I think this happens because I tunnelvision on a certain aspect of the problem and forget about the bigger picture so I need to start thinking holistically about solving a problem, not forgetting about certain important parts of the problem.
+
+### Triangle (`medium9.js`)
+I faced similar challenges to the previous problem, it is obvious that the lessons haven't exactly been cemented in my mind which is fine for now, but I need to get it in my thick skull that I need to approach the problem with an open mind, and do my best not to tunnelvision. If you're doing a problem about dynamic programming, try think of a dynamic solution!!! Yes you can probably use a recursive tree traversal that is part of your bread and butter, but it might be slow and will need to adapted to the problem at hand!!! Also uploads are patchy, don't always have access to github due to being overseas. 
