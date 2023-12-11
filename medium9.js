@@ -24,7 +24,7 @@ var minimumTotal = function(triangle) {
     return max;
 };
 
-// Solution 2
+// Solution 2 - refactoring of 1
 var minimumTotal = function(triangle) {
     const n = triangle.length;
 
