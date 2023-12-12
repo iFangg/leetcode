@@ -141,3 +141,7 @@ With this problem, my intuitive solution wasn't aligned with the way the problem
 
 ### Triangle (`medium9.js`)
 I faced similar challenges to the previous problem, it is obvious that the lessons haven't exactly been cemented in my mind which is fine for now, but I need to get it in my thick skull that I need to approach the problem with an open mind, and do my best not to tunnelvision. If you're doing a problem about dynamic programming, try think of a dynamic solution!!! Yes you can probably use a recursive tree traversal that is part of your bread and butter, but it might be slow and will need to adapted to the problem at hand!!! Also uploads are patchy, don't always have access to github due to being overseas. 
+
+### Remove Duplicated from Sorted Array (`easy15.js`)
+Overthought the problem here today, I thought if I just made it a set and then used that then the problem be solved most efficiently. However, most of the faster solutions used the more primitive idea of a for loop and changing the values of the array. Hey, sometimes simple is best! Don't need to overcomplicate the solution using extra data structures and algorithms.
+
