@@ -145,6 +145,13 @@ I faced similar challenges to the previous problem, it is obvious that the lesso
 ### Remove Duplicated from Sorted Array (`easy15.js`)
 Overthought the problem here today, I thought if I just made it a set and then used that then the problem be solved most efficiently. However, most of the faster solutions used the more primitive idea of a for loop and changing the values of the array. Hey, sometimes simple is best! Don't need to overcomplicate the solution using extra data structures and algorithms.
 
-###
-Adding easy 16,17, medium 10, 11, 13, 14
+Adding medium 11, 13, 14
+### Same Tree (`easy16.js`)
+The problem itself was on the simpler side, but it was another tree problem so it required that specific thought process (and by that I mean how do I iterate through the tree efficiently). Worked out in the end, but my solution wasn't as clean as it could have been (evident with the 2nd solution)
+
+### Roman to Integer (`easy17.js`)
+This was a problem that was harder to write an efficient solution in terms of both time and space. My original solution was fast, but wasn't the most space efficient one. For a more optimal solution, observe Solution 2
+
+### Minimum Path Sum (`medium10.js`)
+Still struggling a bit with dynamic programming and memoization, specifically these "minimum path" problems. Will need to use more practice on it. My original approach was to have an array of the possible results, but there were bugs with the way I traversed the grid and calculated the end results. The more effective solution adapted to the question and solved it efficiently, constructing all the necessary foundations to solve the problem and then effectively using their implemented memoization table.
 
