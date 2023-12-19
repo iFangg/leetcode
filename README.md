@@ -131,7 +131,7 @@ Couldn't figure out how to do this with heaps and a priority queue, completed it
 Solution was simple convert binary to integer, add then convert back into binary. This was made much easier in js because of the parseInt/BigInt and toString methods. I did fail at first because I forgot about precision and the fact that the binary numbers could extend the length of normal integers. It was a simple fix. Easy problem today!
 
 ### Plus One (`easy13.js`)
-Solution was simple, other solutions I found on leetcode were not clean enough so my own was good enouhg. Simple problem today.
+Solution was simple, other solutions I found on leetcode were not clean enough so my own was good enough. Simple problem today.
 
 ### Climbing Stairs (`easy14.js`)
 Couldn't figure this one out, the clue I was given was 1D Dynamic Programming, perhaps using memoization but I couldn't figure it out. A posted solution used fibonacci, which I don't think fully encapsultes what this problem is trying to train and assess. EDIT: Added solutions that properly utilise memoization.
@@ -144,4 +144,7 @@ I faced similar challenges to the previous problem, it is obvious that the lesso
 
 ### Remove Duplicated from Sorted Array (`easy15.js`)
 Overthought the problem here today, I thought if I just made it a set and then used that then the problem be solved most efficiently. However, most of the faster solutions used the more primitive idea of a for loop and changing the values of the array. Hey, sometimes simple is best! Don't need to overcomplicate the solution using extra data structures and algorithms.
+
+###
+Adding easy 16,17, medium 10, 11, 13, 14
 
