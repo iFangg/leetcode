@@ -155,3 +155,6 @@ This was a problem that was harder to write an efficient solution in terms of bo
 ### Minimum Path Sum (`medium10.js`)
 Still struggling a bit with dynamic programming and memoization, specifically these "minimum path" problems. Will need to use more practice on it. My original approach was to have an array of the possible results, but there were bugs with the way I traversed the grid and calculated the end results. The more effective solution adapted to the question and solved it efficiently, constructing all the necessary foundations to solve the problem and then effectively using their implemented memoization table.
 
+### Majority Element (`easy18.js`)
+Misread the challenge prompt, was trying to think of a O(1) time solution for the longest time hahaha. My intuitive solution worked, but I couldn't figure out how to completely optimise it for a while beacuse I kept thinking of using multiple variables for the majority value, and the count of each variable. However, given the question conditions, I was actually overthinking the problem and so all I had to check was the number which occured more than n / 2 times (because it was guaranteed). Again a reminder to read the questions carefully (two reminders in one!)
+
