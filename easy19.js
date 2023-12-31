@@ -20,6 +20,7 @@ var singleNumber = function(nums) {
 
 // Solution 2
 var singleNumber = function(nums) {
+    // The result will be 0 after XOR if the number is the same, and finally only the number that appears only once will be left
     let result = 0;
     for (let num of nums) {
         result ^= num;
