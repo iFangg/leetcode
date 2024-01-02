@@ -158,3 +158,6 @@ Still struggling a bit with dynamic programming and memoization, specifically th
 ### Majority Element (`easy18.js`)
 Misread the challenge prompt, was trying to think of a O(1) time solution for the longest time hahaha. My intuitive solution worked, but I couldn't figure out how to completely optimise it for a while beacuse I kept thinking of using multiple variables for the majority value, and the count of each variable. However, given the question conditions, I was actually overthinking the problem and so all I had to check was the number which occured more than n / 2 times (because it was guaranteed). Again a reminder to read the questions carefully (two reminders in one!)
 
+### Longest Common Prefix (`easy22.js`)
+Took a little longer to solve because I was thinking about the solution and spent some time writing down my thought process and how to implement. Not sure what's so different about my answers and the fastest performing ones, they were almost identical yet mine was drastically slower. Good solving today :))
+
