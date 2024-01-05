@@ -1,8 +1,8 @@
 # Leetcode practice problems
 
-### Maximum Score From Removing Stones: Medium problem (see `medium1.js`)
-After a long uni term of design principle study and more refactoring than critical thinking, in the direct problem solving sense, this problem was a good refresher for me, helping highlight that I have neglected such critical thinking for a long enough time that standard problems such as this one proved difficult again.
+Below are all the [Easy](#easy), [Medium](#med) and [Hard](#hard) problems I've done for practice.
 
+## Easy Problems <a name="easy"></a>
 ### Merge sorted Array: Easy problem (see `easy1.js`)
 My initial intuitive solution had holes in it, I realise that my problem solving and critical thinking infact have holes in them, especially when I don't properly plan the solution out and write 2 lines of my thought process out, hoping it translates to a flawless code solution. Note to self: If the problem does not flow naturally or genuinely challenges you, WRITE YOUR STEPS DOWN and FORMULATE A SOLUTION. Even if it's not that challenging do it anyways! It's a good habit!
 
@@ -47,6 +47,71 @@ Similar to the previous binary tree problem that I did, I am greatly reminded th
 
 ### Minimum Absolute Difference in BST (`easy9.js`)
 Unfortunately I read the question wrong and created an incorrect solution. I thus had to restart and think of another solution which worked. Intuitive solution could have been more refined, could have realised that if I traversed the tree in order (using depth-first) it would have been much more efficient instead of purely finding all values in the tree, sorting and *then* finding the smallest interval. More practice and critical thinking needed. Spending a little extra time on problems never hurts!!
+
+### Converted Sorted Array to Binary Search Tree (`easy10.js`)
+Another binary tree problem, my thought process was correct - hard to go wrong with simply implementing a bst - but again my implementation let me down. Didn't properly implement the creation of a bst and found errors initially of creating unbalanced trees. The problem here was that I wasn't setting the middle of the sub arrays to be the parent node of the subtree and so each subtree had a chance of being unbalanced. Goes to show I need more practice and time spent on these fundamentals.
+
+### Search Insert Position (`easy11.js`)
+Problem solved with relative ease, simple binary search (two pointers/indexes at opposite ends of the array) implementation. Saw a solution that completely disregarded the idea of the problem; though incredibly fast, it is impractical and not what the question aims to test (i think).
+
+### Add Binary (`easy12.js`)
+Solution was simple convert binary to integer, add then convert back into binary. This was made much easier in js because of the parseInt/BigInt and toString methods. I did fail at first because I forgot about precision and the fact that the binary numbers could extend the length of normal integers. It was a simple fix. Easy problem today!
+
+### Plus One (`easy13.js`)
+Solution was simple, other solutions I found on leetcode were not clean enough so my own was good enough. Simple problem today.
+
+### Climbing Stairs (`easy14.js`)
+Couldn't figure this one out, the clue I was given was 1D Dynamic Programming, perhaps using memoization but I couldn't figure it out. A posted solution used fibonacci, which I don't think fully encapsultes what this problem is trying to train and assess. EDIT: Added solutions that properly utilise memoization.
+
+### Remove Duplicated from Sorted Array (`easy15.js`)
+Overthought the problem here today, I thought if I just made it a set and then used that then the problem be solved most efficiently. However, most of the faster solutions used the more primitive idea of a for loop and changing the values of the array. Hey, sometimes simple is best! Don't need to overcomplicate the solution using extra data structures and algorithms.
+
+### Same Tree (`easy16.js`)
+The problem itself was on the simpler side, but it was another tree problem so it required that specific thought process (and by that I mean how do I iterate through the tree efficiently). Worked out in the end, but my solution wasn't as clean as it could have been (evident with the 2nd solution)
+
+### Roman to Integer (`easy17.js`)
+This was a problem that was harder to write an efficient solution in terms of both time and space. My original solution was fast, but wasn't the most space efficient one. For a more optimal solution, observe Solution 2
+### Kth Largest Element in Array (`medium7.js`)
+Couldn't figure out how to do this with heaps and a priority queue, completed it via a simple sort and index solution. Solution 2 is an example of how to solve the problem using a heap and a priority queue.
+
+### Majority Element (`easy18.js`)
+Misread the challenge prompt, was trying to think of a O(1) time solution for the longest time hahaha. My intuitive solution worked, but I couldn't figure out how to completely optimise it for a while beacuse I kept thinking of using multiple variables for the majority value, and the count of each variable. However, given the question conditions, I was actually overthinking the problem and so all I had to check was the number which occured more than n / 2 times (because it was guaranteed). Again a reminder to read the questions carefully (two reminders in one!)
+
+### Single Number (`easy19.js`)
+My initial solution did not utilise bit manipulation at all, which was the whole premise of the problem. The second solution addresses that in an efficient and interesting manner. Might need to read up on my binary knowledge and how I can apply that to problems such as these.
+
+### Max Profit (`easy20.js`/`easy20.ts`)
+This problem was simple, I was able to reduce the problem to finding the greatest difference between two numbers and returning that difference. All the other solutions that I saw weren't as clean or logical as my own so I was happy with just my attempt. That was in js, for some reason that same solution in ts was slower (I'm assuming it was because of the type safety since I didn't typecast my variables and the engine took longer to auto assign.).
+
+### Length of Last Word (`easy21.js`)
+Simple string to array manipulation and collecting information. Second solution is neater than the first one but ultimately does the same thing. Nice and simple problem today :)
+
+### Longest Common Prefix (`easy22.js`)
+Took a little longer to solve because I was thinking about the solution and spent some time writing down my thought process and how to implement. Not sure what's so different about my answers and the fastest performing ones, they were almost identical yet mine was drastically slower. Good solving today :))
+
+### Find the Index of the First Occurence in a String (`easy23.js`)
+My intuitive solution worked, but was on the slower side of the majority of posted solutions. The 2nd solution was optimal, using the double pointer method to solve the problem slightly faster, though both solutions have a worst-case time complexity of O((n - m + 1) * m).
+
+### Isomorphic Strings (`easy24.js`)
+My intuitive solution was a little messy and utilised some js Object methods to check if my dictionary had certain keys and values. The second solution implemented two hashmaps instead of my one and it made the solution more readable and efficient. The use of two hashmaps instead of one slipped past my mind, silly mistake leading me to not create an optimal solution. But hey it was a solution nonetheless!
+
+### Word Pattern (`easy25.js`)
+Similar problem to the isomorphic strings one, so my intuitive solution worked quite well here. Good problem, no problems here.
+
+### Valid Anagram(`easy26.js`)
+This was a ambiguous question in the sense that there are hundred of ways to solve this, some more efficient or creative than others. The way I chose to do it was to create arrays of the letters of both strings and compare the arrays.
+
+### Happy Number (`easy27.js`)
+This felt more like a math challenge to see if I could find any patterns would help me find a one liner solution. Didn't find any patterns so I had to instead split the number up and operate on it like that until we could determine if it was a happy number or not.
+
+### Contains Duplicate II (`easy28.js`)
+My initial solution worked, but it was too slow for larger cases and so I had to refactor so it was more efficient. I didn't realise me using the indexOf() method within the for loop made my function O(n^2). Using a map was much more efficient (STOP FORGETTING ABOUT USING MAPS).
+
+______________________________________________________________________________________________________________________________________________________________________________
+
+## Medium Problems <a name="med"></a>
+### Maximum Score From Removing Stones: Medium problem (see `medium1.js`)
+After a long uni term of design principle study and more refactoring than critical thinking, in the direct problem solving sense, this problem was a good refresher for me, helping highlight that I have neglected such critical thinking for a long enough time that standard problems such as this one proved difficult again.
 
 ### Clone Graph (`medium2.js`)
 Though my thought process was correct, my implementation wasn't. Due to a lack of understanding of more complex data structures I started off using more basic structures which left holes in my implementation; an example of this was my implementation of the visited nodes array which started off as an array, then becoming a set and finally a map which accurately kept track of visited nodes and a copy of the respective nodes. Traversing graphs and trees are becoming easier to implement, showing that the practice is paying off! Can't stop now!
@@ -115,26 +180,8 @@ Initial call: generateCombinations(0, '')
         |-- Third recursive call: generateCombinations(3, 'bff')   (reached end, add to result)
 ```
 
-### Converted Sorted Array to Binary Search Tree (`easy10.js`)
-Another binary tree problem, my thought process was correct - hard to go wrong with simply implementing a bst - but again my implementation let me down. Didn't properly implement the creation of a bst and found errors initially of creating unbalanced trees. The problem here was that I wasn't setting the middle of the sub arrays to be the parent node of the subtree and so each subtree had a chance of being unbalanced. Goes to show I need more practice and time spent on these fundamentals.
-
 ### Maximum Subarray (`medium6.js`)
 This was a problem about Kadane's algorithm, something which I had no idea about. Had to google it and figure it out from there, so I didn't tehcnically  figure that out on my own. I feel as though I made up for it with an extension activity, changing the the return value from the largest sum to the subarray that contains the largest sum. Even though I had inspirtaion for my implementation, it still was not incredibly efficient, in time or in space. The 2nd solution is slightly more time efficient and increasingly space efficient because I don't initialise n variables and rather intialise the index once and alter that. I've added an extra solution that uses memoization, just useful for knowing what memoization is.
-
-### Search Insert Position (`easy11.js`)
-Problem solved with relative ease, simple binary search (two pointers/indexes at opposite ends of the array) implementation. Saw a solution that completely disregarded the idea of the problem; though incredibly fast, it is impractical and not what the question aims to test (i think).
-
-### Kth Largest Element in Array (`medium7.js`)
-Couldn't figure out how to do this with heaps and a priority queue, completed it via a simple sort and index solution. Solution 2 is an example of how to solve the problem using a heap and a priority queue.
-
-### Add Binary (`easy12.js`)
-Solution was simple convert binary to integer, add then convert back into binary. This was made much easier in js because of the parseInt/BigInt and toString methods. I did fail at first because I forgot about precision and the fact that the binary numbers could extend the length of normal integers. It was a simple fix. Easy problem today!
-
-### Plus One (`easy13.js`)
-Solution was simple, other solutions I found on leetcode were not clean enough so my own was good enough. Simple problem today.
-
-### Climbing Stairs (`easy14.js`)
-Couldn't figure this one out, the clue I was given was 1D Dynamic Programming, perhaps using memoization but I couldn't figure it out. A posted solution used fibonacci, which I don't think fully encapsultes what this problem is trying to train and assess. EDIT: Added solutions that properly utilise memoization.
 
 ### House Robbing (`medium8.js`)
 With this problem, my intuitive solution wasn't aligned with the way the problem was meant to be solved. With a lot of these dynamic programming problems I seem to neglect the fact that they are dynamic solutions and try use slow, recursive solutions that either take too long or use too much memory for larger cases. I think this happens because I tunnelvision on a certain aspect of the problem and forget about the bigger picture so I need to start thinking holistically about solving a problem, not forgetting about certain important parts of the problem.
@@ -142,31 +189,12 @@ With this problem, my intuitive solution wasn't aligned with the way the problem
 ### Triangle (`medium9.js`)
 I faced similar challenges to the previous problem, it is obvious that the lessons haven't exactly been cemented in my mind which is fine for now, but I need to get it in my thick skull that I need to approach the problem with an open mind, and do my best not to tunnelvision. If you're doing a problem about dynamic programming, try think of a dynamic solution!!! Yes you can probably use a recursive tree traversal that is part of your bread and butter, but it might be slow and will need to adapted to the problem at hand!!! Also uploads are patchy, don't always have access to github due to being overseas. 
 
-### Remove Duplicated from Sorted Array (`easy15.js`)
-Overthought the problem here today, I thought if I just made it a set and then used that then the problem be solved most efficiently. However, most of the faster solutions used the more primitive idea of a for loop and changing the values of the array. Hey, sometimes simple is best! Don't need to overcomplicate the solution using extra data structures and algorithms.
-
-Adding medium 11, 13, 14
-### Same Tree (`easy16.js`)
-The problem itself was on the simpler side, but it was another tree problem so it required that specific thought process (and by that I mean how do I iterate through the tree efficiently). Worked out in the end, but my solution wasn't as clean as it could have been (evident with the 2nd solution)
-
-### Roman to Integer (`easy17.js`)
-This was a problem that was harder to write an efficient solution in terms of both time and space. My original solution was fast, but wasn't the most space efficient one. For a more optimal solution, observe Solution 2
-
 ### Minimum Path Sum (`medium10.js`)
 Still struggling a bit with dynamic programming and memoization, specifically these "minimum path" problems. Will need to use more practice on it. My original approach was to have an array of the possible results, but there were bugs with the way I traversed the grid and calculated the end results. The more effective solution adapted to the question and solved it efficiently, constructing all the necessary foundations to solve the problem and then effectively using their implemented memoization table.
+Adding medium 11 - 18
 
-### Majority Element (`easy18.js`)
-Misread the challenge prompt, was trying to think of a O(1) time solution for the longest time hahaha. My intuitive solution worked, but I couldn't figure out how to completely optimise it for a while beacuse I kept thinking of using multiple variables for the majority value, and the count of each variable. However, given the question conditions, I was actually overthinking the problem and so all I had to check was the number which occured more than n / 2 times (because it was guaranteed). Again a reminder to read the questions carefully (two reminders in one!)
+______________________________________________________________________________________________________________________________________________________________________________
 
-### Single Number (`easy19.js`)
-My initial solution did not utilise bit manipulation at all, which was the whole premise of the problem. The second solution addresses that in an efficient and interesting manner. Might need to read up on my binary knowledge and how I can apply that to problems such as these.
 
-### Max Profit (`easy20.js`/`easy20.ts`)
-This problem was simple, I was able to reduce the problem to finding the greatest difference between two numbers and returning that difference. All the other solutions that I saw weren't as clean or logical as my own so I was happy with just my attempt. That was in js, for some reason that same solution in ts was slower (I'm assuming it was because of the type safety since I didn't typecast my variables and the engine took longer to auto assign.).
-
-### Length of Last Word (`easy21.js`)
-Simple string to array manipulation and collecting information
-
-### Longest Common Prefix (`easy22.js`)
-Took a little longer to solve because I was thinking about the solution and spent some time writing down my thought process and how to implement. Not sure what's so different about my answers and the fastest performing ones, they were almost identical yet mine was drastically slower. Good solving today :))
+## Hard Problems <a name="hard"></a>
 
