@@ -158,6 +158,15 @@ Still struggling a bit with dynamic programming and memoization, specifically th
 ### Majority Element (`easy18.js`)
 Misread the challenge prompt, was trying to think of a O(1) time solution for the longest time hahaha. My intuitive solution worked, but I couldn't figure out how to completely optimise it for a while beacuse I kept thinking of using multiple variables for the majority value, and the count of each variable. However, given the question conditions, I was actually overthinking the problem and so all I had to check was the number which occured more than n / 2 times (because it was guaranteed). Again a reminder to read the questions carefully (two reminders in one!)
 
+### Single Number (`easy19.js`)
+My initial solution did not utilise bit manipulation at all, which was the whole premise of the problem. The second solution addresses that in an efficient and interesting manner. Might need to read up on my binary knowledge and how I can apply that to problems such as these.
+
+### Max Profit (`easy20.js`/`easy20.ts`)
+This problem was simple, I was able to reduce the problem to finding the greatest difference between two numbers and returning that difference. All the other solutions that I saw weren't as clean or logical as my own so I was happy with just my attempt. That was in js, for some reason that same solution in ts was slower (I'm assuming it was because of the type safety since I didn't typecast my variables and the engine took longer to auto assign.).
+
+### Length of Last Word (`easy21.js`)
+Simple string to array manipulation and collecting information
+
 ### Longest Common Prefix (`easy22.js`)
 Took a little longer to solve because I was thinking about the solution and spent some time writing down my thought process and how to implement. Not sure what's so different about my answers and the fastest performing ones, they were almost identical yet mine was drastically slower. Good solving today :))
 
