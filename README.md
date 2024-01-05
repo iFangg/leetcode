@@ -3,16 +3,16 @@
 Below are all the [Easy](#easy), [Medium](#med) and [Hard](#hard) problems I've done for practice.
 
 ## Easy Problems <a name="easy"></a>
-### Merge sorted Array: Easy problem (see `easy1.js`)
+### Merge sorted Array (see `easy1.js`)
 My initial intuitive solution had holes in it, I realise that my problem solving and critical thinking infact have holes in them, especially when I don't properly plan the solution out and write 2 lines of my thought process out, hoping it translates to a flawless code solution. Note to self: If the problem does not flow naturally or genuinely challenges you, WRITE YOUR STEPS DOWN and FORMULATE A SOLUTION. Even if it's not that challenging do it anyways! It's a good habit!
 
-### Remove Element: Easy problem (see `easy2.js`)
+### Remove Element (see `easy2.js`)
 Either my intuitive thinking is beginning to return to what it was before, or this question was on the easier side of easy problems. Either way, my intuitive solutions worked, although not completely refined. One of the community solutions filtered the array, and replaced the original array with the filtered array which to me sounds better than making a copy of the original array and replacing the values which are equal to the given value. Solution 3 is a refined version of my intuitive process, not using the array copy and instead only having an index tracker to replace values in the original array.
 
-### Is subsequence: Easy problem (see `easy3.js`)
+### Is subsequence (see `easy3.js`)
 Intuitive solution again worked, but was not optimal - need to spend some more time thinking and find a more optimal solution. Though my intuitive solution works, I forgot proper usage of js functions and methods. Will need to revise js. Upon inspecting the more optimal solutions interms of time and space, they were very similar to mine, except they didn't create extra arrays. They instead had pointers to indexes of the strings that incremented if they found the matching character. This means I need to continue improving on my problem solving skills and efficiency in these problems. Take your time!!!
 
-### Summary Ranges: Easy problem (`easy4.js`)
+### Summary Ranges (`easy4.js`)
 Intuitive solution was more thought out this time, I adapted my thoughts into an actual plan (observe below) and translated it into code (although I technically started writing the code first and got stuck). This is really good news! I'm adapting my thought process and problem solving ability. Even though these are still just easy leetcode problems this will set me up for the future!!! Solution 2 is a refactored version of my original solution, though it supposedly uses memory a lot poorer than my original solution. The third solution is one of the better solutions in terms of memory usage, but it performed averagely when I ran that solution on my machine.
 ```
 example case: 0 1 2 4 5 7
@@ -33,7 +33,7 @@ end:
  end = this number if consecutive, this number if no longer consecutive
 ```
 
-### Linked List: Easy problem (`easy5.js`)
+### Linked List (`easy5.js`)
 Intuitive solution worked, problem was simple enough that my thought process didn't need to be written down. The only issue today was that I rushed it and didn't double check my code for simple mistakes. The only real issue with my solution was it's slow speed. A faster solution looked at the next element in the linked list, as well as the one after that, saving time and memory on the amount of iterations while still achieving the same answer.
 
 ### Maximum Depth of Binary Tree (`easy6.js`)
@@ -110,7 +110,7 @@ My initial solution worked, but it was too slow for larger cases and so I had to
 ______________________________________________________________________________________________________________________________________________________________________________
 
 ## Medium Problems <a name="med"></a>
-### Maximum Score From Removing Stones: Medium problem (see `medium1.js`)
+### Maximum Score From Removing Stones (see `medium1.js`)
 After a long uni term of design principle study and more refactoring than critical thinking, in the direct problem solving sense, this problem was a good refresher for me, helping highlight that I have neglected such critical thinking for a long enough time that standard problems such as this one proved difficult again.
 
 ### Clone Graph (`medium2.js`)
