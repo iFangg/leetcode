@@ -12,13 +12,13 @@
  * @return {number}
  */
 var countNodes = function(root) {
-    visited = []
+    visited = [];
     function count(total, root) {
         if (root === null) return total;
         if (visited.includes(root)) return total;
-        visited.push(root)
-        total = count(total + 1, root.left)
-        total = count(total, root.right)
+        visited.push(root);
+        total = count(total + 1, root.left);
+        total = count(total, root.right);
         return total;
     }
 
@@ -28,9 +28,7 @@ var countNodes = function(root) {
 
 // Solution 2
 var countNodes = function(root) {
-    if (root === null) {
-        return 0;
-    }
+    if (root === null) return 0;
 
     return countNodes(root.left) + countNodes(root.right) + 1;
 };
