@@ -51,8 +51,7 @@ var gameOfLife = function(board) {
 };
 
 
-// Solution 2 (long but somehow performs faster)
-var gameOfLife = function(board) {
+// Solution 2
     /* Algo (Final Reviwed*)
       -  alive to dead ===> -1, dead to alive ==> 2
       - if cell is -1 or 1 then we can detect it as alive, find all the alive neighbours
@@ -94,8 +93,25 @@ var gameOfLife = function(board) {
 
 
     */
+var gameOfLife = function(board) {
     let m = board.length;
     let n = board[0].length;
+    
+    function findAliveNeighbours(row, col) {
+        let liveCount = 0;
+        // clockwise direction, starting form topleft to left 
+        let dir = [[-1,-1],[-1,0],[-1,1],[0,1],[1,1],[1,0],[1,-1],[0,-1]];
+        
+        for(let [r, c] of dir) {
+            // r,c has to change everytime not the row and col
+            r = row + r;
+            c = col + c;
+            if(r>=0 && r<m && c>=0 && c<n && (board[r][c] === 1 || board[r][c] === -1)) liveCount++;
+        }
+        
+        return liveCount;
+    }
+    
     for(let i=0; i<board.length; i++) {
         for(let j=0; j<board[0].length; j++) {
             let cell = board[i][j];
@@ -115,20 +131,4 @@ var gameOfLife = function(board) {
             if(cell === -1) board[i][j] = 0;
         }
     }
-
-    function findAliveNeighbours(row, col) {
-        let liveCount = 0;
-        // clockwise direction, starting form topleft to left 
-        let dir = [[-1,-1],[-1,0],[-1,1],[0,1],[1,1],[1,0],[1,-1],[0,-1]];
-        
-        for(let [r, c] of dir) {
-            // r,c has to change everytime not the row and col
-            r = row + r;
-            c = col + c;
-            if(r>=0 && r<m && c>=0 && c<n && (board[r][c] === 1 || board[r][c] === -1)) liveCount++;
-        }
-        
-        return liveCount;
-    }
-
 };
