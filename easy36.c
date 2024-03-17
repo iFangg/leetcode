@@ -2,7 +2,6 @@
 uint32_t reverseBits(uint32_t n) {
     uint32_t reverseN = 0;
     for (int i = 0; i < 32; i++) {
-        // shift left for first 16, shift right for next 16
         reverseN |= ((n >> i) & 1) << (31 - i);
     }
 
