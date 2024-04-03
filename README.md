@@ -198,3 +198,5 @@ ________________________________________________________________________________
 
 ## Hard Problems <a name="hard"></a>
 
+### Candy (`hard1.py`)
+First hard problem!!! The intuition to this problem was not incredibly hard, though the solution took a bit of time to figure out. I spent a lot of time thinking about what data structures would be best to use with this question when I was ignoring the fact that everything I needed was in the supplied array. Establishing every child to start with 1 candy was the first step, then it was to iterate through the array once forwards to track all the left neighbours, and once backwards to update all the right neighbours. I had thought of using two or three pointer methods, but those would have required methods of updating the children after each iteration and would have been incredibly inefficient. This was a half success, had to look at solutions to finalise the problem.
