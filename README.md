@@ -191,7 +191,10 @@ I faced similar challenges to the previous problem, it is obvious that the lesso
 
 ### Minimum Path Sum (`medium10.js`)
 Still struggling a bit with dynamic programming and memoization, specifically these "minimum path" problems. Will need to use more practice on it. My original approach was to have an array of the possible results, but there were bugs with the way I traversed the grid and calculated the end results. The more effective solution adapted to the question and solved it efficiently, constructing all the necessary foundations to solve the problem and then effectively using their implemented memoization table.
-Adding medium 11 - 18
+Adding medium 11 - 30
+
+### Integer to Roman (`medium31.py`)
+Took a linear time complexity approach here, iterated through the digits of the number to create the roman numeral. Other solutions stored more values in their maps of integers to roman numerals which made the bulk of their code, iterating through the number to translate the integer, cleaner.
 
 ______________________________________________________________________________________________________________________________________________________________________________
 
