@@ -198,6 +198,9 @@ Took a linear time complexity approach here, iterated through the digits of the 
 
 ### Remove Nth Node from End of List (`medium32.py`)
 Initially misread the question as remove Nth node from the list, so I had to decrement my counter, instead of incrementing it, and iterate through the linked list an extra time to find the length of the linked list. Sample solutions used a slow and fast pointer to keep track of current and previous nodes in the list where I used current and previous variables.
+
+### Add Two Numbers (`medium33.py`)
+Another relatively simple problem, was debating whether to traverse the linked list and find the sum in one loop, or retrieve the numbers from each linked list and create a new linked list using the found sum. Both solutions work, I think my solution is a little more readable and easier to implement.
 ______________________________________________________________________________________________________________________________________________________________________________
 
 
