@@ -196,6 +196,8 @@ Adding medium 11 - 30
 ### Integer to Roman (`medium31.py`)
 Took a linear time complexity approach here, iterated through the digits of the number to create the roman numeral. Other solutions stored more values in their maps of integers to roman numerals which made the bulk of their code, iterating through the number to translate the integer, cleaner.
 
+### Remove Nth Node from End of List (`medium32.py`)
+Initially misread the question as remove Nth node from the list, so I had to decrement my counter, instead of incrementing it, and iterate through the linked list an extra time to find the length of the linked list. Sample solutions used a slow and fast pointer to keep track of current and previous nodes in the list where I used current and previous variables.
 ______________________________________________________________________________________________________________________________________________________________________________
 
 
