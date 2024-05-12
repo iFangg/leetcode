@@ -201,6 +201,9 @@ Initially misread the question as remove Nth node from the list, so I had to dec
 
 ### Add Two Numbers (`medium33.py`)
 Another relatively simple problem, was debating whether to traverse the linked list and find the sum in one loop, or retrieve the numbers from each linked list and create a new linked list using the found sum. Both solutions work, I think my solution is a little more readable and easier to implement.
+
+### Set Matrix Zeroes  (`medium34.py` and `medium34.c`)
+Solution with O(n+m) space complexity was rather intuitive, constant space complexity was more difficult (see the c file for solutions).
 ______________________________________________________________________________________________________________________________________________________________________________
 
 
