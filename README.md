@@ -204,6 +204,9 @@ Another relatively simple problem, was debating whether to traverse the linked l
 
 ### Set Matrix Zeroes  (`medium34.py` and `medium34.c`)
 Solution with O(n+m) space complexity was rather intuitive, constant space complexity was more difficult (see the c file for solutions).
+
+### Two Sum II (`medium35.py`)
+Standard implementation of two pointer method, solved with optimal solution.
 ______________________________________________________________________________________________________________________________________________________________________________
 
 
