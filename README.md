@@ -214,3 +214,8 @@ ________________________________________________________________________________
 
 ### Candy (`hard1.py`)
 First hard problem!!! The intuition to this problem was not incredibly hard, though the solution took a bit of time to figure out. I spent a lot of time thinking about what data structures would be best to use with this question when I was ignoring the fact that everything I needed was in the supplied array. Establishing every child to start with 1 candy was the first step, then it was to iterate through the array once forwards to track all the left neighbours, and once backwards to update all the right neighbours. I had thought of using two or three pointer methods, but those would have required methods of updating the children after each iteration and would have been incredibly inefficient. This was a half success, had to look at solutions to finalise the problem.
+
+### Word Ladder (`hard2.py`)
+This problem was a bit of a head-scrather at first, figuring out what was the best way to approach the problem. I eventually settled on creating a graph using the words, and then performing BFS on my created graph. Thought this was on the right track it was not optimal. The second solution I posted used a bidirectional BFS approach where they used multiple sets to contain what words have been used, and update that as they test words. They tested if they had reached the end node by changing every letter in the current word iteratively and checking if it matched the end word which, in hindsight, is a lot more efficient than creating a graph which checks if each word can be linked to each other. 
+
+
