@@ -1,36 +1,50 @@
 # Solution 1 - TOO SLOW
 class Solution:
-    def findLadders(
-        self, beginWord: str, endWord: str, wordList: List[str]
-    ) -> List[List[str]]:
-        def neighbors(word):
-            for i in range(len(word)):
-                for char in "abcdefghijklmnopqrstuvwxyz":
-                    yield word[:i] + char + word[i + 1 :]
+    def findLadders(self, beginWord: str, endWord: str, wordList: List[str]) -> List[List[str]]:
+        if endWord not in wordList: return []
+        word_list = set(wordList)
+        combinations = []
+        queue = collections.deque([(beginWord, [beginWord])])
+        visited = set([beginWord])
+        min_dist = float('inf')
 
-        i = 1
-        words = {beginWord: lambda: [[beginWord]]}
-        unvisited = set(wordList)
-        while words and endWord not in words:
-            i += 1
-            new_words = defaultdict(lambda: lambda: [])
-            for s in words:
-                for ss in neighbors(s):
-                    if ss in unvisited:
+        while queue:
+            localVisited = set()
+            for _ in range(len(queue)):
+                currWord, currPath = queue.popleft()
+                # print(f"curr: {currWord}, {currPath}")
+                found = False
+                
+                for i in range(len(beginWord)):
+                    left = currWord[:i]
+                    right = currWord[i + 1:]    
 
-                        def get_seqs(capture=(ss, new_words[ss], words[s])):
-                            ss, ss_get_seqs, s_get_seqs = capture
-                            seqs = ss_get_seqs()
-                            for seq in s_get_seqs():
-                                seq.append(ss)
-                                seqs.append(seq)
-                            return seqs
+                    for c in string.ascii_lowercase:
+                        new_word = left + c + right
+                        if new_word in visited: continue
+                        if new_word not in word_list: continue
+                        
+                        newPath = currPath + [new_word]
+                        if new_word == endWord:
+                            combinations.append(newPath)
+                            min_dist = min(len(newPath), min_dist)
+                            found = True
+                            break
+                        
+                        localVisited.add(new_word)
+                        queue.append((new_word, newPath))
+                        # print(localVisited)
+                    
+                    if found: break
+                
+                if found: break
 
-                        new_words[ss] = get_seqs
-            words = new_words
-            unvisited -= words.keys()
-        return words[endWord]()
+            word_list.discard(localVisited)
+            visited.update(localVisited)
 
+        # print(f"min distance: {min_dist}")
+        return [path for path in combinations if len(path) == min_dist]
+    
 
 
 # Solution 2 - yield :O
