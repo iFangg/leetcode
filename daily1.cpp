@@ -1,4 +1,4 @@
-// Solution 1
+// Solution 1 - 18/6/24
 class Solution {
 public:
     int maxProfitAssignment(vector<int>& difficulty, vector<int>& profit, vector<int>& worker) {
