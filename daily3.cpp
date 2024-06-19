@@ -24,7 +24,7 @@ public:
         if (m == 1 and k == 1) return left;
         auto right = *std::max_element(bloomDay.begin(), bloomDay.end());
         while (left <= right) {
-            auto mid = (left + right) / 2;
+            auto mid = left + (right - left) / 2;
             // std::cout << "left: " << left << ", right: " << right << ", mid: " << mid << "\n";
             auto possible = m_bouquets(bloomDay, mid, m, k);
 
