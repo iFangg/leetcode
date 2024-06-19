@@ -43,6 +43,42 @@ public:
 };
 
 
+// Solution 1.b
+class Solution {
+public:
+    int minDays(vector<int>& bloomDay, int m, int k) {
+        if (static_cast<long>(m) * static_cast<long>(k) > bloomDay.size()) return -1;
+
+        auto left = *std::min_element(bloomDay.begin(), bloomDay.end());
+        if (m == 1 and k == 1) return left;
+        auto right = *std::max_element(bloomDay.begin(), bloomDay.end());
+        auto result = int{-1};
+        while (left <= right) {
+            long mid = left + (right - left) / 2;
+            auto bouquet = int{0};
+            auto count = int{0};
+            for (auto i = size_t{0}; i < bloomDay.size(); ++i) {
+                if (bloomDay[i] <= mid) count++;
+                else count = 0;
+                if (count >= k) {
+                    bouquet++;
+                    count = 0;
+                }
+            }
+
+            if (bouquet >= m) {
+                result = mid;
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+
+        return result;
+    }
+};
+
+
 // Solution 2
 class Solution {
 public:
