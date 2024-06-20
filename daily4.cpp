@@ -71,6 +71,7 @@ public:
     }
 };
 
+// Used to speed up run time
 auto init = [](){
     ios::sync_with_stdio(0);
     cin.tie(0);
