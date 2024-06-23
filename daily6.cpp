@@ -71,7 +71,7 @@ public:
         while(r < n) {
             odd_nos += (nums[r] % 2);
 
-            while(sum > k) {
+            while(odd_nos > k) {
                 odd_nos -= (nums[l] % 2);
                 l++;
             }
