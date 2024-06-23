@@ -1,4 +1,4 @@
-// Solution 1 - 17/6/24
+// Solution 1 - 17/6/24 NOT INCLUDED IN STREAKS
 class Solution {
 public:
     bool judgeSquareSum(int c) {
