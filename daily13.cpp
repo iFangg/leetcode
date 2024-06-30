@@ -66,7 +66,7 @@ public:
 };
 
 
-// Solution 1 - Union Find
+// Solution 1 - Union Find/Disjoint Set Union
 class Solution {
 public:
     int maxNumEdgesToRemove(int n, vector<vector<int>>& edges) {
