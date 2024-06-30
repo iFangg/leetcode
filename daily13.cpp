@@ -74,32 +74,40 @@ public:
         public:
             vector<int> parent, size;
             int components;
+        
+            // Constructor initializes the Union-Find structure
             UnionFind(int n) {
-                components = n;
-                parent.resize(n + 1);
-                size.resize(n + 1, 1);
+                components = n; // Initially, each element is its own component
+                parent.resize(n + 1); // Parent array with n + 1 elements (1-based indexing)
+                size.resize(n + 1, 1); // Size array initialized to 1
                 for (int i = 0; i <= n; ++i) {
-                    parent[i] = i;
+                    parent[i] = i; // Each element is its own parent initially
                 }
             }
-
+        
+            // Find operation with path compression
             int find(int x) {
                 if (parent[x] != x) {
-                    parent[x] = find(parent[x]);
+                    parent[x] = find(parent[x]); // Path compression
                 }
                 return parent[x];
             }
-
+        
+            // Union operation with union by size
             bool unite(int x, int y) {
-                int rootX = find(x), rootY = find(y);
-                if (rootX == rootY) return false;
+                int rootX = find(x); // Find root of x
+                int rootY = find(y); // Find root of y
+                if (rootX == rootY) return false; // x and y are already in the same set
+        
+                // Union by size: attach the smaller tree to the root of the larger tree
                 if (size[rootX] < size[rootY]) swap(rootX, rootY);
-                parent[rootY] = rootX;
-                size[rootX] += size[rootY];
-                components--;
+                parent[rootY] = rootX; // Make rootX the parent of rootY
+                size[rootX] += size[rootY]; // Update the size of the tree rooted at rootX
+                components--; // Decrease the number of components
                 return true;
             }
-
+        
+            // Check if the structure is fully connected (single component)
             bool isConnected() {
                 return components == 1;
             }
