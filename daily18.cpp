@@ -14,3 +14,14 @@ public:
             return 1 + (period - t);
     }
 };
+
+// OR
+class Solution {
+public:
+    int passThePillow(int n, int time) {
+        if ((time % ((n - 1) * 2)) < n)
+            return 1 + (time % ((n - 1) * 2));
+        else
+            return 1 + (((n - 1) * 2) - (time % ((n - 1) * 2)));
+    }
+}
