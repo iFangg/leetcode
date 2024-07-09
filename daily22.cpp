@@ -2,8 +2,6 @@
 class Solution {
 public:
     double averageWaitingTime(vector<vector<int>>& customers) {
-        // initially, add time taken for first customer
-
         // compare current time to time of customer entry
         // add wait time to current time
         // add total wait time for current customer for overall wait time
@@ -17,7 +15,6 @@ public:
                 curr += (*c)[1];
                 total += curr - (*c)[0];
             }
-            // std::cout << "total is " << total << std::endl;
         }
         
         return total / customers.size();
