@@ -2,8 +2,6 @@
 class Solution {
 public:
     double averageWaitingTime(vector<vector<int>>& customers) {
-        // add waiting time of curr customer
-        // subtract any idle time
         // initially, add time taken for first customer
 
         // compare current time to time of customer entry
