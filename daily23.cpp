@@ -29,16 +29,17 @@ public:
         for (int i = 0; i < logs.size(); i++) {
             if (logs[i] == "../") {
                if(n > 0) n--;
-            } else if (logs[i] == "./") {
-                continue;
-            } else {
-                n++;
+               continue;
             }
+
+            if (logs[i] == "./")
+                continue;
+
+            n++;
         }
-      
-        if(n < 0)
-          return 0;
-      
+
+        if(n < 0) 
+            return 0;
         return n;
     }
 };
