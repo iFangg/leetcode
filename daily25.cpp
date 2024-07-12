@@ -95,7 +95,7 @@ public:
     }
 };
 
-// Solution 4
+// Solution 3
 class Solution {
 public:
     int maximumGain(string s, int x, int y) {
