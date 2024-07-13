@@ -44,11 +44,13 @@ public:
                 auto& curr_hp = robots[i][2];
                 auto& other_hp = robots[j][2];
                 if (curr_hp > other_hp) {
-                    healths[j]--;
-                    robots[j][1]--;
-                } else if (curr_hp < other_hp) {
                     healths[i]--;
                     robots[i][1]--;
+                    healths[j] = 0;
+                } else if (curr_hp < other_hp) {
+                    healths[j]--;
+                    robots[j][1]--;
+                    healths[i] = 0;
                 } else {
                     healths[i] == 0;
                     healths[j] == 0;
