@@ -52,37 +52,79 @@ public:
 
 
 // Solution 2
-#define MX 100001
+#define MAX 100001
+
 #pragma GCC optimize("03")
-#pragma GCC target ("avx")
-#pragma GCC target ("-fsplit-loops")
-TreeNode* Nodes[MX];
-TreeNode nodes[MX];
-int P[MX];
-int V[MX];
-int cnt = 0;
-int idx = 0;
-TreeNode* p;
-TreeNode* c;
-auto _ = [](){
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL), cout.tie(NULL);
+#pragma GCC target("avx")
+#pragma GCC target("-fsplit-loops")
+
+#include <iostream>
+#include <vector>
+
+struct TreeNode {
+    int val;
+    TreeNode* left;
+    TreeNode* right;
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+    TreeNode(int x) : val(x, left(nullptr), right(nullptr) {}
+    TreeNode(int x, TreeNode* left, TreeNode* right) : val(x), left(left), right(right) {}
+};
+
+TreeNode* Nodes[MAX];
+TreeNode nodes[MAX];
+int parents[MAX];  // Array to keep track of parent-child relationships
+int visited[MAX];  // Array to track nodes that have been created
+int count = 0;
+int index = 0;
+TreeNode* parent;
+TreeNode* child;
+
+// Initialize I/O optimizations
+auto _ = []() {
+    std::ios_base::sync_with_stdio(false);
+    std::cin.tie(NULL);
+    std::cout.tie(NULL);
     return 0;
 }();
-// WIZARDY
+
 class Solution {
 public:
-    TreeNode* createBinaryTree(const vector<vector<int>>& descriptions) {
-        while(cnt) Nodes[V[--cnt]] = nullptr, P[V[cnt]] = 0;
-        idx = cnt;
-        for(const vector<int> &desc : descriptions){
-            int a = desc[0], b = desc[1];
-            p = Nodes[a] ? Nodes[a] : (Nodes[a] = &(nodes[idx++] = TreeNode(V[cnt++] = a)));
-            c = Nodes[b] ? Nodes[b] : (Nodes[b] = &(nodes[idx++] = TreeNode(V[cnt++] = b)));
-            P[b] = a;
-            if(desc[2]) p -> left = c; else p -> right = c;
+    TreeNode* createBinaryTree(const std::vector<std::vector<int>>& descriptions) {
+        // Reset Nodes and parents arrays
+        while (count) {
+            Nodes[visited[--count]] = nullptr;
+            parents[visited[count]] = 0;
         }
-        for(const vector<int> &desc : descriptions) if(!P[desc[0]]) return Nodes[desc[0]];
-        return NULL;
+        index = count;
+        
+        for (const std::vector<int>& desc : descriptions) {
+            int a = desc[0];
+            int b = desc[1];
+            
+            // Get or create the parent node
+            parent = Nodes[a] ? Nodes[a] : (Nodes[a] = &(nodes[index++] = TreeNode(visited[count++] = a)));
+            
+            // Get or create the child node
+            child = Nodes[b] ? Nodes[b] : (Nodes[b] = &(nodes[index++] = TreeNode(visited[count++] = b)));
+            
+            // Record the parent of the child node
+            parents[b] = a;
+            
+            // Set the child node as left or right child of the parent
+            if (desc[2]) {
+                parent->left = child;
+            } else {
+                parent->right = child;
+            }
+        }
+        
+        // Find and return the root node
+        for (const std::vector<int>& desc : descriptions) {
+            if (!parents[desc[0]]) {
+                return Nodes[desc[0]];
+            }
+        }
+        return nullptr;
     }
 };
+
