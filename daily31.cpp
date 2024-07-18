@@ -77,18 +77,6 @@ public:
 
 
 // Solution 2
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
-
 struct NodePos
 {
     int64_t depth;
@@ -109,15 +97,10 @@ void dfs(TreeNode *node, std::vector<NodePos> &leaves, int64_t depth, int64_t po
 
     if(node->left == nullptr && node->right == nullptr)
     {
-        // std::cout << ((depth)) << " " << pos;
-        // std::cout << std::endl;
-
         NodePos p;
         p.depth = depth;
         p.pos = pos;
         leaves.emplace_back(p);
-
-        // std::cout << depth << std::endl;
     }
 }
 
@@ -144,9 +127,6 @@ public:
                 auto sp = leaves[j].pos;
 
                 auto min = std::min(fd, sd);
-
-                // std::cout << (int)fd << " " << (int)sd << std::endl;
-                // std::cout << (int64_t)fp << " " << (int64_t)sp << std::endl;
 
                 auto depthDiff = __builtin_ctzl(fp ^ sp);
                 
