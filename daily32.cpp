@@ -35,7 +35,7 @@ public:
 };
 
 
-// Solution 2
+// Solution 2 - time efficient
 class Solution {
 public:
     vector<int> luckyNumbers (vector<vector<int>>& m) {
@@ -69,7 +69,7 @@ auto init = []()
 }();
 
 
-// Solution 3
+// Solution 3 - space efficient
 class Solution {
 public:
     vector<int> luckyNumbers (vector<vector<int>>& mat) {
