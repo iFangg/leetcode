@@ -1,4 +1,9 @@
 // Solution 1 - FAIL
+// can't recover code
+// solution tried to recursively increment positions of elements from the conditions. This was too inefficient and takes around k^3 time and was difficult to implement
+
+
+// Solution 2
 class Solution {
 public:
     vector<vector<int>> buildMatrix(int k, vector<vector<int>>& rowConditions, vector<vector<int>>& colConditions) {
@@ -68,7 +73,7 @@ private:
 };
 
 
-// Solution 2
+// Solution 3
 class Solution {
 public:
     bool buildGraph(vector<vector<int> >& arr, int n, vector<int>& data) {
