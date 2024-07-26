@@ -131,43 +131,57 @@ public:
 // Solution 3
 class Solution {
 public:
-    int findTheCity(int n, vector<vector<int>>& edges, int distanceThreshold) {
-        vector<vector<int>>matrix(n,vector<int>(n,1e9));
-        for(int i=0;i<edges.size();i++){
-            int u=edges[i][0];
-            int v=edges[i][1];
-            int w=edges[i][2];
-            matrix[u][v]=w;
-            matrix[v][u]=w;
+    int findTheCity(int n, std::vector<std::vector<int>>& edges, int distanceThreshold) {
+        // Initialize the adjacency matrix with a large number to represent infinity.
+        std::vector<std::vector<int>> matrix(n, std::vector<int>(n, 1e9));
+        
+        // Populate the adjacency matrix with the given edges.
+        for (const auto& edge : edges) {
+            int u = edge[0];
+            int v = edge[1];
+            int w = edge[2];
+            matrix[u][v] = w;
+            matrix[v][u] = w;
         }
-        for(int i=0;i<n;i++){
-            matrix[i][i]=0;
+        
+        // Set the diagonal to 0, since the distance from a node to itself is 0.
+        for (int i = 0; i < n; ++i) {
+            matrix[i][i] = 0;
         }
-        for(int k=0;k<n;k++){
-            for(int i=0;i<n;i++){
-                for(int j=0;j<n;j++){
-                    matrix[i][j]=min(matrix[i][j],matrix[i][k]+matrix[k][j]);
+        
+        // Apply the Floyd-Warshall algorithm to find the shortest paths between all pairs of nodes.
+        for (int k = 0; k < n; ++k) {
+            for (int i = 0; i < n; ++i) {
+                for (int j = 0; j < n; ++j) {
+                    if (matrix[i][k] < 1e9 && matrix[k][j] < 1e9) {
+                        matrix[i][j] = std::min(matrix[i][j], matrix[i][k] + matrix[k][j]);
+                    }
                 }
             }
         }
-        vector<int>dist(n,0);
-        for(int i=0;i<n;i++){
-            int c=0;
-            for(int j=0;j<n;j++){
-                 if(matrix[i][j]<=distanceThreshold){
-                    c++;
-                 }
+        
+        // Count the number of cities within the distance threshold for each city.
+        std::vector<int> dist(n, 0);
+        for (int i = 0; i < n; ++i) {
+            int count = 0;
+            for (int j = 0; j < n; ++j) {
+                if (matrix[i][j] <= distanceThreshold) {
+                    ++count;
+                }
             }
-            dist[i]=c;
+            dist[i] = count;
         }
-        int min=dist[0],node=0;
-        for(int i=1;i<n;i++){
-          if(dist[i]<=min){
-            min=dist[i];
-            node=i;
-          }
+        
+        // Find the city with the smallest number of reachable cities within the threshold.
+        int minCount = dist[0];
+        int city = 0;
+        for (int i = 1; i < n; ++i) {
+            if (dist[i] <= minCount) {
+                minCount = dist[i];
+                city = i;
+            }
         }
-        return node;
+        
+        return city;
     }
 };
-
