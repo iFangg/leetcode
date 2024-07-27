@@ -92,41 +92,49 @@ public:
 // Solution 2
 class Solution {
 public:
+    // Function to find the minimum cost to transform source to target
     long long minimumCost(string source, string target, vector<char>& original, vector<char>& changed, vector<int>& cost) {
-        const int inf = 1 << 29;
-        int g[26][26];
+        const int inf = 1 << 29; // Define a large constant to represent infinity (sufficiently large number)
+        int g[26][26]; // Adjacency matrix to store minimum transformation costs between characters
+
+        // Initialize the adjacency matrix
         for (int i = 0; i < 26; ++i) {
-            fill(begin(g[i]), end(g[i]), inf);
-            g[i][i] = 0;
+            fill(begin(g[i]), end(g[i]), inf); // Set all values to infinity
+            g[i][i] = 0; // The cost to transform a character to itself is 0
         }
 
+        // Populate the adjacency matrix with given transformation costs
         for (int i = 0; i < original.size(); ++i) {
-            int x = original[i] - 'a';
-            int y = changed[i] - 'a';
-            int z = cost[i];
-            g[x][y] = min(g[x][y], z);
+            int x = original[i] - 'a'; // Convert character to index (0-25)
+            int y = changed[i] - 'a'; // Convert character to index (0-25)
+            int z = cost[i]; // Transformation cost
+            g[x][y] = min(g[x][y], z); // Take the minimum cost if multiple transformations are given
         }
 
-        for (int k = 0; k < 26; ++k) {
-            for (int i = 0; i < 26; ++i) {
-                for (int j = 0; j < 26; ++j) {
-                    g[i][j] = min(g[i][j], g[i][k] + g[k][j]);
+        // Apply the Floyd-Warshall algorithm to find the shortest path between all pairs of characters
+        for (int k = 0; k < 26; ++k) { // Intermediate character
+            for (int i = 0; i < 26; ++i) { // Start character
+                for (int j = 0; j < 26; ++j) { // End character
+                    g[i][j] = min(g[i][j], g[i][k] + g[k][j]); // Update with the minimum cost
                 }
             }
         }
 
-        long long ans = 0;
-        int n = source.length();
+        long long ans = 0; // Variable to store the total minimum cost
+        int n = source.length(); // Length of the source (and target) string
+
+        // Calculate the total minimum cost to transform source to target
         for (int i = 0; i < n; ++i) {
-            int x = source[i] - 'a';
-            int y = target[i] - 'a';
-            if (x != y) {
-                if (g[x][y] >= inf) {
-                    return -1;
+            int x = source[i] - 'a'; // Convert source character to index
+            int y = target[i] - 'a'; // Convert target character to index
+            if (x != y) { // If characters are different
+                if (g[x][y] >= inf) { // If no valid transformation path exists
+                    return -1; // Return -1 indicating the transformation is not possible
                 }
-                ans += g[x][y];
+                ans += g[x][y]; // Add the cost of transforming source[i] to target[i]
             }
         }
-        return ans;
+        return ans; // Return the total minimum cost
     }
 };
+
