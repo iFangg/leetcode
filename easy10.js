@@ -18,9 +18,7 @@ var sortedArrayToBST = function(nums) {
 };
 
 function constructBST(nums, start, end) {
-    if (start > end) {
-        return null;
-    }
+    if (start > end) return null;
 
     const middle = Math.floor((start + end) / 2);
     const root = new TreeNode(nums[middle]);
