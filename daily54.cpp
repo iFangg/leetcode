@@ -1,5 +1,6 @@
 #include <vector>
 #include <unordered_set>
+#include <string>
 
 // Solution 1.A - FAIL
 class Solution {
