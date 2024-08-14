@@ -19,6 +19,8 @@ public:
                     if sum ==, add vector of elements to results, increment left
                     if sum >, exit and increment left
             -> quadratic time complexity (worst case)
+        
+        backtracking?
         */
 
         if (candidates.size() == 1 and target == candidates[0])
@@ -128,25 +130,48 @@ public:
 // Solution 2
 class Solution {
 public:
+    // Public method to find all unique combinations of candidates that sum up to the target
     std::vector<std::vector<int>> combinationSum2(std::vector<int>& candidates, int target) {
+        // Sort the candidates to handle duplicates and to facilitate the pruning of branches
         std::sort(candidates.begin(), candidates.end());
-        std::vector < std::vector < int >> ans;
-        std::vector < int > ds;
+        
+        // Vector to store the final results
+        std::vector<std::vector<int>> ans;
+        
+        // Vector to store the current combination
+        std::vector<int> ds;
+        
+        // Call the helper function to find combinations starting from index 0
         findCombination(0, target, candidates, ans, ds);
+        
+        // Return the final results
         return ans;
     }
 
-    void findCombination(int ind, int target, std::vector < int > & arr, std::vector < std::vector < int >> & ans, std::vector < int > & ds) {
+    // Helper method to find combinations using backtracking
+    void findCombination(int ind, int target, std::vector<int>& arr, std::vector<std::vector<int>>& ans, std::vector<int>& ds) {
+        // If the target is 0, we have found a valid combination
         if (target == 0) {
+            // Add the current combination to the results
             ans.push_back(ds);
             return;
         }
         
+        // Loop through the array starting from the current index
         for (int i = ind; i < arr.size(); i++) {
+            // Skip duplicates by ensuring we only take the first occurrence of a number in this position
             if (i > ind && arr[i] == arr[i - 1]) continue;
+            
+            // If the current number is greater than the target, we can stop further exploration
             if (arr[i] > target) break;
+            
+            // Include the current number in the combination
             ds.push_back(arr[i]);
+            
+            // Recur with the remaining target and the next index
             findCombination(i + 1, target - arr[i], arr, ans, ds);
+            
+            // Backtrack by removing the last added number to explore other combinations
             ds.pop_back();
         }
     }
