@@ -25,7 +25,13 @@ public:
 
             _ _ _ _ _
         */
-       
+
+        piles_ = piles;
+
+        for (int i = piles_.size() - 2; i >= 0; --i) {
+            piles_[i] += piles_[i + 1];
+        }
+
         dp_.resize(piles.size() + 1);
         for (auto& M : dp_) {
             M.resize(piles.size() + 1);
@@ -36,55 +42,46 @@ public:
             M.resize(piles.size() + 1);
         }
 
-       return dp_alice(0, 1, piles);
+       return dp_alice(0, 1);
     }
     
-    int dp_alice(int i, int M, std::vector<int>& piles) {
+    int dp_alice(int i, int M) {
+        if (i + 2 * M  >= piles_.size()) {
+            return piles_[i];
+        }
+
+        if (dp_[i][M - 1])
+            return dp_[i][M - 1];
+
         int max_stones = 0;
-        if (i + 2 * M  >= piles.size()) {
-            for (auto x = 0; i + x < piles.size(); ++x) {
-                max_stones += piles[i + x];                
-            }
-
-            dp_[i][M] = max_stones;
-            return max_stones;
+        for (auto x = 1; i + x - 1 < piles_.size(); ++x) {
+            max_stones = std::max(max_stones, dp_bob(i + x - 1, std::max(x, M)) + piles_[i + x - 1] - piles_[i]);
         }
 
-        if (dp_[i][M])
-            return dp_[i][M];
-
-        auto total = 0;
-        for (auto x = 1; i + x - 1 < piles.size(); ++x) {
-            total += piles[i + x - 1];
-
-            max_stones = std::max(max_stones, dp_bob(i + x, std::max(x, M), piles) + total);
-        }
-
-        dp_[i][M] = max_stones;
+        dp_[i][M - 1] = max_stones;
         return max_stones;
     }
 
-    int dp_bob(int i, int M, std::vector<int>& piles) {
-        int min_stones = 0;
-        if (i + 2 * M  >= piles.size()) {
-            dp_b_[i][M] = 0;
+    int dp_bob(int i, int M) {
+        if (i + 2 * M  >= piles_.size()) {
             return 0;
         }
 
-        if (dp_b_[i][M])
-            return dp_b_[i][M];
+        if (dp_b_[i][M - 1])
+            return dp_b_[i][M - 1];
 
-        min_stones = INT_MAX;
-        for (auto x = 1; i + x - 1 < piles.size(); ++x) {
-            min_stones = std::min(min_stones, dp_alice(i + x, std::max(x, M), piles));
+        int min_stones = INT_MAX;
+        for (auto x = 1; i + x - 1 < piles_.size(); ++x) {
+            min_stones = std::min(min_stones, dp_alice(i + x - 1, std::max(x, M)));
         }
 
-        dp_b_[i][M] = min_stones;
+        dp_b_[i][M - 1] = min_stones;
         return min_stones;
     }    
 
 private:
+    std::vector<int> piles_;
     std::vector<std::vector<int>> dp_;
-
     std::vector<std::vector<int>> dp_b_;
 };
+
