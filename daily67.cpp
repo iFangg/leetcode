@@ -1,6 +1,7 @@
 #include <numeric>
 #include <iostream>
 #include <string>
+#include <sstream>
 #include <vector>
 
 // Solution 1
@@ -121,5 +122,32 @@ public:
         }
 
         return std::to_string(numerator) + "/" + std::to_string(denominator);
+    }
+};
+
+// Solution 3
+class Solution {
+public:
+    std::string fractionAddition(std::string expression) {
+        std::stringstream ss(expression);
+        char op;
+        int a, b, c, d;
+        int num, den;
+        ss >> a; ss >> op; ss >> b; //extracting the 1st 2 numbers
+        while(ss >> c) //til we have the number
+        {
+            ss >> op; // op is the operator. which is '/' in our case
+            ss >> d;
+            num = a * d + b * c;
+            den = b * d;
+            a = num / std::gcd(abs(num), abs(den));
+            b = den / std::gcd(abs(num), abs(den));
+        }
+
+        c = std::gcd(abs(a), abs(b));
+        a = a / c;
+        b = b / c;
+        
+        return std::to_string(a) + '/' + std::to_string(b);
     }
 };
