@@ -4,7 +4,7 @@
 // Solution 1
 class Solution {
 public:
-    int strangePrinter(string s) {
+    int strangePrinter(std::string s) {
         s_ = s;
         dp_ = std::vector<std::vector<int>>(s.size(), std::vector<int>(s.size(), -1));
 
@@ -23,7 +23,7 @@ private:
         for (auto k = i + 1; k <= j; ++k) {
             if (s_[k] == s_[i]) {
                 auto better = find_min_prints(i, k - 1) + find_min_prints(k + 1, j);
-                ans = min(ans, better);
+                ans = std::min(ans, better);
             }
         }
 
