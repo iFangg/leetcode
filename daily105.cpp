@@ -30,31 +30,34 @@ public:
 // Solution 2
 class CustomStack {
 public:
-    vector<int> stack;
-    int top;
+    int n;
+    stack<int> stack;
+    vector<int> inc;
 
-    CustomStack(int maxSize) {
-        stack.resize(maxSize);
-        top = -1;
+    CustomStack(int n) {
+        this->n = n;
     }
 
     void push(int x) {
-        if (top < stack.size() - 1) {
-            top++;
-            stack[top] = x;
+        if (stack.size() < n) {
+            stack.push(x);
+            inc.push_back(0);
         }
     }
 
     int pop() {
-        if (top != -1) {
-            return stack[top--];
-        }
-        return -1;
+        if (stack.empty()) return -1;
+        if (inc.size() > 1) inc[inc.size() - 2] += inc.back();
+        int res = stack.top() + inc.back();
+        stack.pop();
+        inc.pop_back();
+        return res;
     }
 
     void increment(int k, int val) {
-        for (int i = 0; i < min(k, top + 1); i++) {
-            stack[i] += val;
+        if (!stack.empty()) {
+            int idx = min(k, (int)inc.size()) - 1;
+            inc[idx] += val;
         }
     }
 };
