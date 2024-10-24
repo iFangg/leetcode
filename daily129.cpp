@@ -44,3 +44,15 @@ public:
         return false;
     }
 };
+
+
+// Solution 2
+class Solution {
+public:
+    bool flipEquiv(TreeNode* root1, TreeNode* root2) {
+        if(root1 == nullptr and root2 == nullptr) return true;
+        if(root1 == nullptr or root2 == nullptr) return false;
+        if(root1->val != root2->val) return false;
+        return ((flipEquiv(root1->left, root2->left) or flipEquiv(root1->left, root2->right)) and (flipEquiv(root1->right, root2->left) or flipEquiv(root1->right, root2->right)));
+    }
+};
