@@ -41,7 +41,31 @@ public:
 }
 
 
-// Solution 2
+// Solution 2 - FAIL
+class Solution {
+public:
+    long long minEnd(int n, int x) {
+        /*
+        start with x as first element in array
+        next number is has same n_x bits from the right as x
+        find next number (how?)
+            add 2^(number of bits in x + 1)
+
+        */
+        unsigned int num = x;
+
+        for (auto i = 1; i < n; ++i) {
+            std::cout << num << std::endl;
+            std::cout << (int)log2(num) + 1 << std::endl;
+            num += std::pow(2,(int)log2(num) + 1);
+        }
+
+        return num;
+    }
+}
+
+
+// Solution 3
 class Solution {
 public:
     long minEnd(int n, int x) {
