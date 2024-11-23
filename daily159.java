@@ -60,19 +60,31 @@ class Solution {
 // Solution 2
 class Solution {
     public char[][] rotateTheBox(char[][] box) {
-      int m = box.length, n = box[0].length;
-      char[][] res = new char[n][m];
-      
-      for (int i = 0; i < m; ++i)
-        for (int j = n - 1, k = n - 1; j >= 0; --j) {
-          res[j][m - i - 1] = '.';
-          
-          if (box[i][j] != '.') {
-            k = box[i][j] == '*' ? j : k;
-            res[k--][m - i - 1] = box[i][j];
-          }
-      }
-      
-      return res;
+        int m = box.length, n = box[0].length; // m = rows, n = columns in the original box
+        char[][] res = new char[n][m];        // Resultant box after 90-degree rotation
+
+        // Iterate over each row of the box
+        for (int i = 0; i < m; ++i) {
+            // Initialize pointers:
+            // j = iterates through the current row from right to left
+            // k = position where the next stone will "fall" due to gravity
+            for (int j = n - 1, k = n - 1; j >= 0; --j) {
+                // By default, set the rotated position to empty
+                res[j][m - i - 1] = '.';
+
+                // If the current cell contains a stone or an obstacle
+                if (box[i][j] != '.') {
+                    // If it's an obstacle ('*'), reset k to this position
+                    if (box[i][j] == '*') {
+                        k = j;
+                    }
+                    // Place the stone or obstacle at the correct rotated position
+                    res[k--][m - i - 1] = box[i][j];
+                }
+            }
+        }
+
+        return res; // Return the rotated and processed box
     }
 }
+
