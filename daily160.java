@@ -35,20 +35,37 @@ class solution {
 // Solution 2
 class Solution {
     public long maxMatrixSum(int[][] matrix) {
-      int min = Integer.MAX_VALUE;
-      long sum = 0;
-      int negCount = 0; 
-      for(int i=0; i<matrix.length; i++)
-        for(int j=0; j<matrix[0].length; j++)
-        {
-           if(matrix[i][j]<0)
-           negCount++;
-           int ab = Math.abs(matrix[i][j]);
-           min = Math.min(min, ab);
-           sum += ab;    
-      }
-      if(negCount%2==0)
-        return sum; 
-      return sum - 2*min;
-  }
+        // Step 1: Initialize variables
+        int min = Integer.MAX_VALUE; // To track the smallest absolute value in the matrix
+        long sum = 0;                // To accumulate the total sum of absolute values
+        int negCount = 0;            // To count the number of negative elements in the matrix
+
+        // Step 2: Iterate over each element in the matrix
+        for (int i = 0; i < matrix.length; i++) {          // Loop through rows
+            for (int j = 0; j < matrix[0].length; j++) {   // Loop through columns
+                // Check if the current element is negative
+                if (matrix[i][j] < 0) {
+                    negCount++; // Increment the negative count
+                }
+
+                // Compute the absolute value of the current element
+                int ab = Math.abs(matrix[i][j]);
+
+                // Update the smallest absolute value seen so far
+                min = Math.min(min, ab);
+
+                // Add the absolute value to the total sum
+                sum += ab;
+            }
+        }
+
+        // Step 3: Determine the result based on the number of negative elements
+        if (negCount % 2 == 0) {
+            // If the count of negative elements is even, return the total sum
+            return sum;
+        }
+
+        // If the count of negative elements is odd, subtract twice the smallest absolute value
+        return sum - 2 * min;
+    }
 }
