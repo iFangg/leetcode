@@ -2,7 +2,6 @@
 class Solution {
     public int findChampion(int n, int[][] edges) {
         /**
-        bfs
         return the node that has no incoming edges
         */
 
