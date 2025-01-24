@@ -93,45 +93,88 @@ class Solution {
 
 // Solution 3
 class Solution {
+
+    // Main function to calculate the minimum number of jumps to reach the end.
     public int jump(int[] nums) {
+        // Calls the helper function `jump` with initial parameters.
         return jump(nums, 0, 0, 0);
     }
 
+    /**
+     * Recursive approach to calculate the minimum number of jumps.
+     *
+     * @param nums Array of integers where each element represents the maximum jump length.
+     * @param from Current start position.
+     * @param to Maximum reachable index in the current jump.
+     * @param jumpCount Number of jumps taken so far.
+     * @return The minimum number of jumps to reach the end.
+     */
     public int jump(int[] nums, int from, int to, int jumpCount) {
         int n = nums.length;
-        if (to >= n-1) {
+        // Base case: If the maximum reachable position `to` is at or beyond the last index.
+        if (to >= n - 1) {
             return jumpCount;
         }
+
+        // `nextTo` tracks the farthest reachable index in the next jump.
         int nextTo = -1;
-        for (int i=from; i<=to; i++) {
-            nextTo = Math.max(nextTo, nums[i]+i);
+        for (int i = from; i <= to; i++) {
+            // Update `nextTo` to include the maximum distance reachable from index `i`.
+            nextTo = Math.max(nextTo, nums[i] + i);
         }
-        return jump(nums, to+1, nextTo, jumpCount+1);
+
+        // Recursively call `jump` for the next range of indices with incremented jump count.
+        return jump(nums, to + 1, nextTo, jumpCount + 1);
     }
-    
+
+    /**
+     * Dynamic Programming approach to calculate the minimum number of jumps.
+     *
+     * @param nums Array of integers where each element represents the maximum jump length.
+     * @return The minimum number of jumps to reach the end.
+     */
     public int jump2(int[] nums) {
         int n = nums.length;
-        int[]dp = new int[n];
+        // Initialize a DP array where dp[i] stores the minimum jumps needed to reach the end from index `i`.
+        int[] dp = new int[n];
+        // Fill with a large number (infinity) to represent uncalculated states.
         Arrays.fill(dp, 1_000_000_007);
-        dp[n-1] = 0;
+        dp[n - 1] = 0; // Base case: 0 jumps needed from the last index.
 
-        for(int i = n-2; i>=0; i--){
-            for(int j = i+1; j <= i+nums[i] && j<n; j++){
-               dp[i] = Math.min(dp[i], 1 +dp[j]);
+        // Traverse the array in reverse to compute `dp[i]`.
+        for (int i = n - 2; i >= 0; i--) {
+            // Check all reachable positions from index `i` within `nums[i]` steps.
+            for (int j = i + 1; j <= i + nums[i] && j < n; j++) {
+                // Update `dp[i]` with the minimum jumps needed.
+                dp[i] = Math.min(dp[i], 1 + dp[j]);
             }
         }
-        return dp[0];
+        return dp[0]; // Return the minimum jumps needed from the first index.
     }
 
-    private int helper(int[] arr, int id){
-        if(id >= arr.length-1) return 0;
+    /**
+     * Helper function for recursive approach with exponential time complexity.
+     * 
+     * @param arr Array of integers where each element represents the maximum jump length.
+     * @param id Current index in the array.
+     * @return The minimum number of jumps needed from index `id` to the end.
+     */
+    private int helper(int[] arr, int id) {
+        // Base case: If the index is at or beyond the last position, no more jumps are needed.
+        if (id >= arr.length - 1) return 0;
 
+        // Maximum number of steps that can be taken from the current index.
         int m = arr[id];
-        int ans = 1_000_000_007;
-        for(int i = 1; i<=m; i++){
+        int ans = 1_000_000_007; // Initialize to infinity for comparison.
+
+        // Try all possible jumps from the current position.
+        for (int i = 1; i <= m; i++) {
+            // Recursively calculate the jumps needed from the next position.
             int res = helper(arr, id + i);
+            // Update `ans` with the minimum result.
             ans = Math.min(ans, 1 + res);
         }
-        return ans;
+        return ans; // Return the minimum jumps needed from index `id`.
     }
 }
+
